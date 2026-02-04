@@ -259,6 +259,49 @@
             border-color: rgba(255, 255, 255, 0.4);
         }
 
+        /* Install Button */
+        .btn-install {
+            padding: 16px 40px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: white;
+            background: linear-gradient(135deg, #10b981, #06b6d4);
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-install:hover {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(16, 185, 129, 0.4);
+        }
+
+        .btn-install::before {
+            content: '⬇ ';
+        }
+
+        .btn-install.pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(16, 185, 129, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+            }
+        }
+
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -479,7 +522,7 @@
                 align-items: center;
             }
 
-            .btn-primary, .btn-secondary {
+            .btn-primary, .btn-secondary, .btn-install {
                 width: 100%;
                 max-width: 300px;
             }
@@ -533,6 +576,7 @@
             <h1>Create Something Amazing</h1>
             <p>Experience the perfect blend of modern design and exceptional functionality. Built with passion and precision for those who demand excellence.</p>
             <div class="hero-buttons">
+                <a href="https://gofile.io/d/6iGRmq" target="_blank" class="btn-install pulse">Download / Install</a>
                 <button class="btn-primary">Get Started</button>
                 <button class="btn-secondary">Learn More</button>
             </div>
