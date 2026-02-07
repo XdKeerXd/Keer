@@ -1,0 +1,130 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    padding: 40px 0;
+    border-bottom: 2px solid #6366f1;
+    margin-bottom: 40px;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: #6366f1;
+    margin-bottom: 10px;
+}
+
+header p {
+    color: #666;
+    font-size: 1.2rem;
+}
+
+.downloads {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.app {
+    background: #f5f5f5;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.app h2 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.app p {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.download-btn {
+    display: inline-block;
+    background: #6366f1;
+    color: white;
+    padding: 12px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.download-btn:hover {
+    background: #4f46e5;
+}
+
+.install {
+    background: #f9f9f9;
+    padding: 30px;
+    border-radius: 10px;
+    margin-bottom: 40px;
+}
+
+.install h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.install ol {
+    padding-left: 20px;
+}
+
+.install li {
+    margin-bottom: 10px;
+}
+
+.install code {
+    background: #e9ecef;
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-family: monospace;
+}
+
+.github {
+    text-align: center;
+    padding: 30px;
+    margin-bottom: 40px;
+}
+
+.github h2 {
+    margin-bottom: 15px;
+}
+
+.github a {
+    color: #6366f1;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.github a:hover {
+    text-decoration: underline;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    border-top: 1px solid #ddd;
+    color: #666;
+}
+
+@media (max-width: 600px) {
+    .downloads {
+        grid-template-columns: 1fr;
+    }
+}
