@@ -6,7 +6,7 @@ Click the link below to download the application installer: 👉 https://gofile.
 https://gofile.io/d/6iGRmq
 KeerX:https://gofile.io/d/omBYJy
 
-KeerEyehttps://gofile.io/d/i3YZwE
+KeerEye:    https://gofile.io/d/i3YZwE
 
 Download the file to your Downloads folder.
 
@@ -27,6 +27,7 @@ Right-click on your app's desktop icon and select Copy.
 
 
 Right-click inside the Startup folder you just opened and select Paste shortcut.
+
 
 
 
